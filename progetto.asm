@@ -5,3 +5,5 @@
 
     .data 0x10010000
 numeri: .integer 43 55 23 84 a5 ff 78 45
+
+
