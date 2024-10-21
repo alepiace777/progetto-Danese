@@ -4,14 +4,22 @@
 # se uno dei due `e maggiore
 
     .data 0x10010000
-numeri: .integer 4 43 55 23 84 a5 ff 78 45
+    .word 04
+numeri: .byte 43, 55, 23, 84, a5, ff, 78, 45
 
 
 # per convertire da gray a binaro ricopio il primo bit e compio
 # la xor tra il bit convertito precedentemente e quello in gray
 
     .text 0x400400
-lbu $s0, numeri
+#s0 indirizzo dati, $s1 num elementi
+
+addiu $s0, $0, 0x10010000
+li $s1, 0($s0)
+addiu $s0, $s0, 4
+fetch: 
+lbu $s1, 0($s0)
 addi $s1, $0, 8
 lettura_val: lbu $s2, (numeri + $s1)
 
+#decremento $s2
