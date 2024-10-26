@@ -18,9 +18,11 @@ numeri: .byte 43, 55, 23, 84, a5, ff, 78, 45
 addiu $s0, $0, 0x10010000
 lw $s1, 0($s0)
 addiu $s0, $s0, 4
+
 #prelevamento dati effettivo
 fetch: lbu $s2, 0($s0)
 lbu $s3, 1($s0)
-add $s0, $s0, 2
+addi $s0, $s0, 2
+subi $s1, $s1, 1
 
-#conversione gray-binario
+#conversione gray-binario, $s3 reg confronto bit, $s4 ctr
