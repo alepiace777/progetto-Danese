@@ -25,4 +25,7 @@ lbu $s3, 1($s0)
 addi $s0, $s0, 2
 subi $s1, $s1, 1
 
-#conversione gray-binario, $s3 reg confronto bit, $s4 ctr
+#conversione gray-binario, $s4 reg confronto bit, $s5 ctr
+addi $s5, $0, 6
+andi $s4, $s2, 10000000
+shdx: 
