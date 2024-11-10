@@ -1,0 +1,6 @@
+ho già copiato il primo bit
+- contatore da 7 per contare i bit rimanenti.
+- contatore per lo shift dei bit alti (
+faccio una and per togliere i bit alti
+- contatore + shift per tornare ai bit bassi
+
