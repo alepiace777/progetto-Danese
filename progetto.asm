@@ -5,8 +5,7 @@
 # nella prima serie o nella seconda
     .text    
 .globl __start
-la $t7, __start
-jr $t7
+
 
     .data 0x10010000
 .word 0x4
