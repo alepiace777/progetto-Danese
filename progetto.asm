@@ -10,7 +10,7 @@ numeri: .byte 43, 55, 23, 84, a5, ff, 78, 45
 
 
 
-# per convertire da gray a binaro ricopio il primo bit e compio
+# per convertire da gray a binaro ricopio il primo bit e svolgo
 # la xor tra il bit convertito precedentemente e quello in gray
 
     .text 0x400400
@@ -44,6 +44,8 @@ sxhi: sll $t4, $t4, 1
 addi $t1, $t1, -1
 bne $t1, $0, sxhi
 
+and $t4, $t4, 0x00008000
+
 add $t2, $t2, $t0
 
 dxhi: srl $t4, $t4 1
@@ -51,9 +53,6 @@ addi $t2, $t2, -1
 bne $t2, $0, dxhi
 
 addi $t1, $t0, 1
-
-
-dxlo: srl
 
 #terminata la pulizia del bit, faccio una or con $t3 e $t4,
 #perche non ho altri bit
