@@ -28,23 +28,29 @@ addi $s0, $s0, 2
 addi $s1, $s1, -1
 
 #conversione gray-binario, $s4 reg confronto bit, $t0 ctr, $t1, $t2 ctr annullamento, $t3 risultato
-andi $s4, $s2, 0x80
+andi $t3, $s2, 0x80
 
-addi $t0, $0, -7
+addi $t0, $0, -7 #valore di cifre, breakpoint
 #sposto un bit a destra per effettuare il confronto e in seguito
 #riporto tutto il valore a destra
-remv: addi $t1, $0, 9
-#$t4 usato momentaneamente per mantenere il valore di $s2
-xor $t4, $s2 $0
-#aggiungo 1 a t0 fino a fargli raggiungere t1
-xor $t2, $t1, $0
+remv: addi $t1, $0, 8
+xor $t4, $s2 $0 #$t4 copia mod di $s2
+
+##aggiungere la xor tra il bit precedente di t3
+srl $t3, $t3, 1
+xor $t4, $t4, $t3
+sll $t3, $t3, 1
+
+xor $t2, $t1, $0 #altro contatore per pulizia
 #modifico il valore di $t1 per avere il numero di cifre
 add $t1, $t1, $t0
+
 sxhi: sll $t4, $t4, 1
+#tolgo 1 a t0 fino a fargli raggiungere t1
 addi $t1, $t1, -1
 bne $t1, $0, sxhi
 
-and $t4, $t4, 0x00008000
+andi $t4, $t4, 128
 
 add $t2, $t2, $t0
 
@@ -61,7 +67,6 @@ or $t3, $t3, $t4
 addi $t0, $t0, 1
 bne $t0, $0, remv
 
-beq $0, $0, fine #salta a fine boia
 
 
 fine: j fine
