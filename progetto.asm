@@ -13,13 +13,12 @@ nval: .word 0x4
 # per convertire da gray a binaro ricopio il primo bit e svolgo
 # la xor tra il bit convertito precedentemente e quello in gray
 
-    .text 0x400400
+    .text #0x400400
 #s0 indirizzo dati, $s1 num elementi, $s2 valore1, $s3 valore2
 #preimpostazione dati
 .globl __start
 __start: la $s0, nval
 lw $s1, 0($s0)
-addi $s1, $s1, 1 #aggiungo 1 per poter usare 0 come confronto nel ciclo
 addiu $s0, $s0, 0x4
 
 xor $s6, $0, $0 #preimposto i registri dei contatori dei valori maggiori
