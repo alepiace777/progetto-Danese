@@ -14,7 +14,7 @@ nval: .word 0x4
 # la xor tra il bit convertito precedentemente e quello in gray
 
     .text #0x400400
-#s0 indirizzo dati, $s1 num elementi, $s2 valore1, $s3 valore2
+#s0 indirizzo dati, $s1 num elementi (coppie), $s2 valore1, $s3 valore2
 #preimpostazione dati
 .globl __start
 __start: la $s0, nval
