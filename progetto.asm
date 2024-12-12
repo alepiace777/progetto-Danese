@@ -53,11 +53,11 @@ j fine
 #conversione gray-binario, $s4 reg confronto bit, $t0 ctr, $t1, $t2 ctr annullamento, $t3 risultato
 conv: andi $t3, $a0, 0x80
 
-addi $t0, $0, -7 #valore di cifre, breakpoint
+li $t0, -7 #valore di cifre, breakpoint
 #sposto un bit a destra per effettuare il confronto e in seguito
 #riporto tutto il valore a destra
 remv: addi $t1, $0, 8
-xor $t4, $a0 $0 #$t4 copia mod di $s2
+xor $t4, $a0, $0 #$t4 copia mod di $s2
 
 ##aggiungere la xor tra il bit precedente di t3
 srl $t3, $t3, 1
