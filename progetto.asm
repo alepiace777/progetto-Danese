@@ -1,7 +1,7 @@
 # Prova del programma: vorrei leggere dei valori in codice gray,
 # convertirli in binario,
 # infine confrontare i due valori e dire quale dei due `e maggiore,
-# se uno dei due `e maggiore, e salvare se sono ci sono piú maggiori
+# SE uno dei due `e maggiore, e salvare se sono ci sono piú maggiori
 # nella prima serie o nella seconda
     
 	.data 0x10010000
