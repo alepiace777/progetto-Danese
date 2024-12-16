@@ -13,7 +13,7 @@ nval: .word 0x4
 # per convertire da gray a binaro ricopio il primo bit e svolgo
 # la xor tra il bit convertito precedentemente e quello in gray
 
-    .text #0x400400
+    .text 0x400000
 #s0 indirizzo dati, $s1 num elementi (coppie), $s2 valore1, $s3 valore2
 #preimpostazione dati
 .globl __start
@@ -53,7 +53,7 @@ j fine
 #conversione gray-binario, $s4 reg confronto bit, $t0 ctr, $t1, $t2 ctr annullamento, $t3 risultato
 conv: andi $t3, $a0, 0x80
 
-li $t0, -7 #valore di cifre, breakpoint
+li $t0, -7 #valore di cifre
 #sposto un bit a destra per effettuare il confronto e in seguito
 #riporto tutto il valore a destra
 remv: addi $t1, $0, 8
