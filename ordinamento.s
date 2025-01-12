@@ -56,12 +56,14 @@ add $t0, $s7, $t0
 #t3 contatore complessivo
 xor $t3, $a1, $0
 
+xor $t8, $a0, $0
+
 loop_fetch:
 #t1 indirizzo caricamento dati
 xor $t1, $s7, $0
 
 # contatore per il confronto su t2
-xor $t2, $a0, $0
+xor $t2, $t8, $0
 
 
 # t4, t5 valori da confrontare
@@ -72,7 +74,7 @@ lw $t4, 0($s7)
 li $t6, 0
 cnfr: lw $t5, 4($t1)
 #confronto
-bgt $t4, $t5, poi
+blt $t4, $t5, poi
 xor $t4, $t5, $0
 #t6 contatore rimpiazzo
 subu $t6, $t3, $t2
@@ -96,9 +98,9 @@ addu $t7, $s7, $t6
 sw $t5, 0($t7)
 
 addiu $t3, $t3, -1
-addiu $a0, $a0, -1
+addiu $t8, $t8, -1
 
-bne $a0, $0, loop_fetch
+bne $t8, $0, loop_fetch
 
 jr $ra
 ################
