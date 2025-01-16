@@ -1,9 +1,9 @@
 # descrizione programma: calcolatore della
 # sequenza di Fibonacci a partire da un numero
-# inoltre verifica l'overflow
+# verifica l'overflow
 
     .data 0x10010000
-val: .byte 0x44 #2e
+val: .byte 0x2e
 
 #s2, s3 registri usati per salvare i valori
 #s1 registro di quanti valori calcolare
@@ -26,14 +26,16 @@ addiu $s1, $s1 -2
 #ciclo principale
 loop: beq $s1, $0, fine
 
-xor $t0, $s3, $0
+    xor $t0, $s3, $0
 
-addu $s3, $s2, $s3
-xor $s2, $t0, $0
+    addu $s3, $s2, $s3
 
-ble $s3, $s2, ovf
+    ble $s3, $s2, ovf
 
-addiu $s1, $s1, -1
+    xor $s2, $t0, $0
+
+
+    addiu $s1, $s1, -1
 
 j loop
 
